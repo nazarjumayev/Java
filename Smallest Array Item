@@ -1,0 +1,82 @@
+//Program About finding smallest array item
+// STARTS  >>>>>>>>>>> FROM HERE   
+
+
+import java.util.Scanner;
+//author nAZaR 
+
+public class SmallestArrayItem 
+{
+public static void main(String[] arg)
+        {
+Scanner keyboard = new Scanner(System.in);
+
+//Declare and initialize two arrays that hold 5 numbers each
+
+int [] array1 = new int[5];
+int [] array2 = new int[5];
+  
+  
+//Gett 5 values from the user and store in an array of 5 elements
+
+System.out.println("Please enter 5 values for array 1");
+for(int i = 0; i < array1.length ; i++ ) {
+array1[i] = keyboard.nextInt();
+}
+//Gettt 5 values from the user and store in a 2nd array of 5 elements
+
+System.out.println("Please enter 5 values for array 2");
+for(int i = 0; i < array2.length ; i++ ) {
+array2[i] = keyboard.nextInt();
+}
+
+// Will sort the array
+
+selectionSort(array1);
+selectionSort(array2);
+ 
+
+boolean found=false;
+for (int i = 0; i < array1.length; i++)
+    
+{
+if(array1[i] == array2[i]){
+found=true;
+System.out.print("The Smallest match in the array is : " + array1[i]);
+break;
+}
+}
+
+if(found==false)
+System.out.println("There is no smallest matching integer!");
+}
+
+/**
+The selectionSort method performs a selection sort on an
+array. 
+*/
+
+public static void selectionSort(int[] array)
+{
+int startScan, index, minIndex, minValue;
+
+for (startScan = 0; startScan < (array.length-1); startScan++)
+{
+    
+minIndex = startScan;
+minValue = array[startScan];
+for(index = startScan + 1; index < array.length; index++)
+{
+    
+if (array[index] < minValue)
+{
+minValue = array[index];
+minIndex = index;
+}
+}
+
+array[minIndex] = array[startScan];
+array[startScan] = minValue;
+}
+}
+}
