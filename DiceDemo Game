@@ -1,0 +1,72 @@
+import java.util.Random;
+
+public class DieDemo{
+    public static void main(String[] args){
+        
+        Random random = new Random();
+        int totalNumberOfTurns = 10;
+        int computerDie;
+        int userDie;
+        int computerScore = 0;
+        int userScore = 0;
+        
+        for( int turn = 1; turn <=10; turn++ ) {
+            computerDie = random.nextInt(6) +1;
+            userDie = random.nextInt(6)+1;
+            System.out.println("Roll #"+turn+":");
+            
+        if (computerDie > userDie ) {
+            computerScore = computerScore + 1;
+             System.out.println( "The computer rolled a " + computerDie +" and user rolled "+ userDie );
+           // When computer wins
+             System.out.println("The computer won this round!\n");
+        }else if(userDie > computerDie ){
+            System.out.println( "The computer rolled a " + computerDie +" and the user rolled "+ userDie );
+            //When user wins
+            System.out.println("The user won this round!\n");
+            userScore = userScore + 1;
+            
+            
+        }else{
+            System.out.println( "The computer rolled a " + computerDie +" and the user rolled "+ userDie );
+           System.out.println( "Turn " + turn + " was a tie\n" );
+       }
+}
+        System.out.println();
+        
+        
+        
+       System.out.println("The user won a grand total of " +userScore+ "times");
+       System.out.println("The computers won a grand total of " +computerScore+ "times");
+       System.out.println("The user is the grand winner!!!");
+
+   //else if(computerScore == userScore ){
+   // System.out.println( "It was a tie with computer winning" +computerScore +
+      //        "turns and user winning " + userScore + "turn all out of" + totalNumberOfTurns );
+   } 
+    
+    
+    
+    }// END OF MAIN
+
+
+class Die1 {
+     int numberOfSides;
+    private int dieValue;
+    
+    public void roll() {
+        Random random = new Random();
+        
+        dieValue = random.nextInt(numberOfSides);
+        
+    }
+
+public int getDieValue() {
+return dieValue;
+
+}
+void Die(int numberOfSidesGiven ) {
+numberOfSides = numberOfSidesGiven;
+roll();
+}
+}
